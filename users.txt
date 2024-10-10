@@ -1,0 +1,4 @@
+nickname:bear_killer
+password:qwerty123
+followers:0
+banned:False
