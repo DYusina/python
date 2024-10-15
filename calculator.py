@@ -22,8 +22,7 @@ def evaluate():
     if ("+" in s) or ("-" in s) or ("*" in s) or ("/" in s) or ("//" in s) or ("%" in s):
         num1 = float(re.split(r'\+|\-|\*|//|/|%', s)[0])
         num2 = float(re.split(r'\+|\-|\*|//|/|%', s)[1])
-        # num1 = float(re.split("//|%", s)[0])
-        # num2 = float(re.split("//|%", s)[1])
+
         if "//" in s:
             if num2 == 0:
                 res_lab['text']='ERROR'
