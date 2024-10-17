@@ -106,14 +106,11 @@ def main():
     root.title("Fractions")
     root.geometry("400x300+80+200")
 
-
     def input(s):
         entry.insert(END, s)
 
-
     def clear():
         entry.delete(0, END)
-
 
     def evaluate():
         s = entry.get()
@@ -160,7 +157,6 @@ def main():
         else:
             res_lab['text'] = "no operation"
 
-
     lab = Label(root, text ="To input a fraction use |")
     lab.place(x=70, y=50)
 
@@ -186,6 +182,7 @@ def main():
     res_lab.place(x=70, y=200)
 
     root.mainloop()
+
 
 if __name__ == "__main__":
     main()

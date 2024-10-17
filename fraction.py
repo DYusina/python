@@ -75,6 +75,7 @@ class Fraction:
             print(a, d, b, c)
             return Fraction(a*d, b*c).simplify()
 
+
 def main():
     fr1 = Fraction(2, 3)
     fr2 = Fraction(1, 6)
