@@ -24,7 +24,7 @@ def verify():
     custom_hash1 = custom_hash(password1)
     custom_hash2 = custom_hash(password2)
 
-    if sha_hash1 == sha_hash2 and custom_hash1 == custom_hash2:
+    if password1 and sha_hash1 == sha_hash2 and custom_hash1 == custom_hash2:
         messagebox.showinfo("Correct password", "Correct")
     else:
         messagebox.showinfo("Wrong password", "Try again")
