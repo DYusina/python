@@ -93,7 +93,7 @@ class Circle:
         intersection_rect_area = (right_border_x - left_border_x) * (max_y - min_y)
 
         inside = 0
-        total_points = 10000  # Количество точек для Монте-Карло
+        total_points = 10000
         for _ in range(total_points):
             point_x = random.uniform(left_border_x, right_border_x)
             point_y = random.uniform(min_y, max_y)
