@@ -101,89 +101,92 @@ fr4 = Fraction(7, 4)
 # print(f'{fr3} / 4 = {fr3.__truediv__(4)} пу-пу-пу')
 
 
-
-root = Tk()
-root.title("Fractions")
-root.geometry("400x300+80+200")
-
-
-def input(s):
-    entry.insert(END, s)
+def main():
+    root = Tk()
+    root.title("Fractions")
+    root.geometry("400x300+80+200")
 
 
-def clear():
-    entry.delete(0, END)
+    def input(s):
+        entry.insert(END, s)
 
 
-def evaluate():
-    s = entry.get()
-    if "+" in s or "-" in s or "*" in s or "/" in s:
-        if s.count("|") == 2:
-            operator = re.search(r"[+\-*/]", s).group()
-            almost_fraction1 = s.split(operator)[0]
-            almost_fraction2 = s.split(operator)[1]
-            fr1 = Fraction(int(almost_fraction1.split('|')[0]), int(almost_fraction1.split('|')[1]))
-            fr2 = Fraction(int(almost_fraction2.split('|')[0]), int(almost_fraction2.split('|')[1]))
-            # print(fr1)
-            # print(fr2)
-            if "+" in s:
-                res = fr1.__add__(fr2)
-                res_lab["text"] = res
-            elif "-" in s:
-                res = fr1.__sub__(fr2)
-                res_lab["text"] = res
-            elif "*" in s:
-                res = fr1.__mul__(fr2)
-                res_lab["text"] = res
-            elif "/" in s:
-                res = fr1.__truediv__(fr2)
-                res_lab["text"] = res
-        elif s.count("|") == 1:
-            operator = re.search(r"[+\-*/]", s).group()
-            almost_fraction1 = s.split(operator)[0]
-            int_num = int(s.split(operator)[1])
-            fr1 = Fraction(int(almost_fraction1.split('|')[0]), int(almost_fraction1.split('|')[1]))
-            if "+" in s:
-                res = fr1.__add__(int_num)
-                res_lab["text"] = res
-            elif "-" in s:
-                res = fr1.__sub__(int_num)
-                res_lab["text"] = res
-            elif "*" in s:
-                res = fr1.__mul__(int_num)
-                res_lab["text"] = res
-            elif "/" in s:
-                res = fr1.__truediv__(int_num)
-                res_lab["text"] = res
+    def clear():
+        entry.delete(0, END)
+
+
+    def evaluate():
+        s = entry.get()
+        if "+" in s or "-" in s or "*" in s or "/" in s:
+            if s.count("|") == 2:
+                operator = re.search(r"[+\-*/]", s).group()
+                almost_fraction1 = s.split(operator)[0]
+                almost_fraction2 = s.split(operator)[1]
+                fr1 = Fraction(int(almost_fraction1.split('|')[0]), int(almost_fraction1.split('|')[1]))
+                fr2 = Fraction(int(almost_fraction2.split('|')[0]), int(almost_fraction2.split('|')[1]))
+                # print(fr1)
+                # print(fr2)
+                if "+" in s:
+                    res = fr1.__add__(fr2)
+                    res_lab["text"] = res
+                elif "-" in s:
+                    res = fr1.__sub__(fr2)
+                    res_lab["text"] = res
+                elif "*" in s:
+                    res = fr1.__mul__(fr2)
+                    res_lab["text"] = res
+                elif "/" in s:
+                    res = fr1.__truediv__(fr2)
+                    res_lab["text"] = res
+            elif s.count("|") == 1:
+                operator = re.search(r"[+\-*/]", s).group()
+                almost_fraction1 = s.split(operator)[0]
+                int_num = int(s.split(operator)[1])
+                fr1 = Fraction(int(almost_fraction1.split('|')[0]), int(almost_fraction1.split('|')[1]))
+                if "+" in s:
+                    res = fr1.__add__(int_num)
+                    res_lab["text"] = res
+                elif "-" in s:
+                    res = fr1.__sub__(int_num)
+                    res_lab["text"] = res
+                elif "*" in s:
+                    res = fr1.__mul__(int_num)
+                    res_lab["text"] = res
+                elif "/" in s:
+                    res = fr1.__truediv__(int_num)
+                    res_lab["text"] = res
+            else:
+                res_lab['text'] = "Input a FRACTION"
         else:
-            res_lab['text'] = "Input a FRACTION"
-    else:
-        res_lab['text'] = "no operation"
+            res_lab['text'] = "no operation"
 
 
-lab = Label(root, text ="To input a fraction use |")
-lab.place(x=70, y=50)
+    lab = Label(root, text ="To input a fraction use |")
+    lab.place(x=70, y=50)
 
-entry = Entry(root, width=20, font=('', 20))
-entry.place(x=70, y=70)
+    entry = Entry(root, width=20, font=('', 20))
+    entry.place(x=70, y=70)
 
-plus_btn = Button(text="+", command=lambda: input('+'))
-plus_btn.place(x=80, y=120, height=40, width=40)
+    plus_btn = Button(text="+", command=lambda: input('+'))
+    plus_btn.place(x=80, y=120, height=40, width=40)
 
-minus_btn = Button(text="-", command=lambda: input('-'))
-minus_btn.place(x=130, y=120, height=40, width=40)
+    minus_btn = Button(text="-", command=lambda: input('-'))
+    minus_btn.place(x=130, y=120, height=40, width=40)
 
-multiply_btn = Button(text="*", command=lambda: input('*'))
-multiply_btn.place(x=180, y=120, height=40, width=40)
+    multiply_btn = Button(text="*", command=lambda: input('*'))
+    multiply_btn.place(x=180, y=120, height=40, width=40)
 
-division_btn = Button(text="/", command=lambda: input('/'))
-division_btn.place(x=230, y=120, height=40, width=40)
+    division_btn = Button(text="/", command=lambda: input('/'))
+    division_btn.place(x=230, y=120, height=40, width=40)
 
-equal_btn = Button(text="=", command = evaluate)
-equal_btn.place(x=280, y=120, height=40, width=40)
+    equal_btn = Button(text="=", command = evaluate)
+    equal_btn.place(x=280, y=120, height=40, width=40)
 
-res_lab = Label(root, text="res", font=('', 20), justify="center")
-res_lab.place(x=70, y=200)
+    res_lab = Label(root, text="res", font=('', 20), justify="center")
+    res_lab.place(x=70, y=200)
 
+    root.mainloop()
 
-root.mainloop()
+if __name__ == "__main__":
+    main()
+

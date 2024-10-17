@@ -1,7 +1,7 @@
 import pygame
 import random
-import requests
-import os
+# import requests
+# import os
 
 pygame.init()
 
